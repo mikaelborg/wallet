@@ -5,6 +5,7 @@
       <option name="CODING_STANDARD" value="Custom" />
       <option name="CUSTOM_RULESET_PATH" value="$USER_HOME$/bin/Symfony-coding-standard-3.1.1/Symfony/ruleset.xml" />
       <option name="SHOW_SNIFF_NAMES" value="true" />
+      <option name="EXTENSIONS" value="php,js,css,inc" />
     </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
