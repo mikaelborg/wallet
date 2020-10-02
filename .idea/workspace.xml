@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d3cca2b-559f-4aa5-b21c-84dc16a26882" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose/mysql/my.cnf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose/nginx/wallet.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wallet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wallet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601626601558</updated>
       <workItem from="1601626602965" duration="1236000" />
-      <workItem from="1601630291528" duration="5521000" />
+      <workItem from="1601630291528" duration="16860000" />
     </task>
     <servers />
   </component>
@@ -199,5 +190,17 @@
       <screen x="0" y="29" width="1920" height="1051" />
     </state>
     <state x="667" y="343" width="576" height="400" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/3840.0.1920.1080/0.29.1920.1051@0.29.1920.1051" timestamp="1601635006432" />
+    <state x="686" y="18" width="528" height="1057" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601647147785">
+      <screen x="0" y="29" width="1920" height="1051" />
+    </state>
+    <state x="686" y="18" width="528" height="1057" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1080/3840.0.1920.1080/0.29.1920.1051@0.29.1920.1051" timestamp="1601647147785" />
+    <state x="693" y="298" width="524" height="490" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601650191911">
+      <screen x="0" y="29" width="1920" height="1051" />
+    </state>
+    <state x="693" y="298" width="524" height="490" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/3840.0.1920.1080/0.29.1920.1051@0.29.1920.1051" timestamp="1601650191911" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1601646601678">
+      <screen x="0" y="29" width="1920" height="1051" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/3840.0.1920.1080/0.29.1920.1051@0.29.1920.1051" timestamp="1601646601678" />
   </component>
 </project>
