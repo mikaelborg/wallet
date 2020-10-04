@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +14,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//I should be able to remove these auth routes if I do them correctly using Vue?
+//Auth::routes();
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/login', [HomeController::class, 'index']);
+Route::get('/register', [HomeController::class, 'index']);
+//need to have an api/logout action?
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth:sanctum'])->group(function () {
+    //Route::get('/wallets', [WalletController::class, 'index']);
+    Route::get('/{any}', [HomeController::class, 'index'])->where('any', '.*');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*
+Route::get('/', function () {
+    return view('dashboard');
+});
+*/
+
+//Route::get('/home', [HomeController::class, 'index'])->name('home');

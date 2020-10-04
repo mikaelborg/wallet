@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use App\Http\Resources\Wallet as WalletResource;
+use App\Http\Resources\WalletCollection as WalletCollectionResource;
 use Illuminate\Support\Facades\Auth;
 
 class WalletController extends Controller
@@ -14,21 +15,9 @@ class WalletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd(Auth::user());
-        //FIXME should be only of this user
-        return new WalletResource(Wallet::where(''));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new WalletCollectionResource($request->user()->wallets);
     }
 
     /**
@@ -39,14 +28,15 @@ class WalletController extends Controller
      */
     public function store(Request $request)
     {
-        $wallet        = $request->isMethod('PUT') ? Wallet::findOrFail($request->id) : new Wallet;
-        $wallet->id    = $request->input('id');
-        $wallet->title = $request->input('title');
-        $wallet->body  = $request->input('body');
-
-        if ($wallet->save()) {
-            return new WalletResource($wallet);
-        }
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'currency' => ['required', 'string', 'min:3', 'max:3'],
+            'status' => 'in:ACTIVE,INACTIVE'
+        ]);
+        //to add validation
+        $data = $request->all();
+        $data['user_id'] = auth()->id();
+        $wallet = Wallet::create($data);
     }
 
     /**
@@ -57,18 +47,7 @@ class WalletController extends Controller
      */
     public function show(Wallet $wallet)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Wallet  $wallet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Wallet $wallet)
-    {
-        //
+        return new WalletResource($wallet);
     }
 
     /**
@@ -80,7 +59,7 @@ class WalletController extends Controller
      */
     public function update(Request $request, Wallet $wallet)
     {
-        //
+        $wallet->update($request->all());
     }
 
     /**
@@ -91,8 +70,6 @@ class WalletController extends Controller
      */
     public function destroy(Wallet $wallet)
     {
-        if ($wallet->delete()) {
-            return new WalletResource($wallet);
-        }
+        $wallet->delete();
     }
 }

@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,27 @@ use App\Http\Controllers\WalletController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/users/store', [UserController::class, 'store']);
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/wallets/{wallet}', [WalletController::class, 'show']);
+    Route::get('/wallets', [WalletController::class, 'index']);
+    Route::post('/wallets', [WalletController::class, 'store']);
+    Route::put('/wallets/{wallet}', [WalletController::class, 'update']);
+    Route::delete('/wallets/{wallet}', [WalletController::class, 'destroy']);
 });
 
-Route::get('/users/{user}', [UserController::class, 'show']); //probably extra
-Route::get('/users', [UserController::class, 'index']); //should only be accessed by new super user middleware
+//Route::get('/users/{user}', [UserController::class, 'show']); //probably extra
+//Route::get('/users', [UserController::class, 'index']); //should only be accessed by new super user middleware
 
 //should require auth middleware to access
-Route::get('/wallets/{wallet}', [WalletController::class, 'show']);
-Route::get('/wallets', [WalletController::class, 'index']);
-Route::post('/wallets/', [WalletController::class, 'create']);
-Route::put('/wallets/{wallet}', [WalletController::class, 'update']);
-Route::delete('/wallets/{wallet}', [WalletController::class, 'destroy']);
+
 

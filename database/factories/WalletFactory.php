@@ -23,7 +23,7 @@ class WalletFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'name' => 'My Wallet',
+            'name' => $this->faker->word,
             'currency' => 'EUR',
             'status' => 'ACTIVE'
         ];
