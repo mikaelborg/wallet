@@ -15,3 +15,8 @@
 1. A **test@gmail.com** default user and a **super@gmail.com** super user are provided by the seeders. Both their passwords are **password**.
 2. Every user can access the **wallets** page, and create, edit or delete wallets.
 3. The super user has special access to the **users**, where he can see all info about users, and edit their wallets.
+
+## Room for improvement
+1. Better error handling and validation
+2. Animations on buttons while fetching data
+3. Refactoring of code
