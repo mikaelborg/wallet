@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,13 @@ use App\Http\Controllers\AuthController;
     return $request->user();
 });*/
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/users/store', [UserController::class, 'store']);
-
+//Route::post('/register', [AuthController::class, 'register']);
+//Route::post('/login', [UserController::class, 'login']);
+//Route::post('/register', [UserController::class, 'store']);
+//Auth::routes();
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', [UserController::class, 'show']);
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/wallets/{wallet}', [WalletController::class, 'show']);
     Route::get('/wallets', [WalletController::class, 'index']);

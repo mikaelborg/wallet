@@ -12,18 +12,21 @@ require('./bootstrap');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import store from '../assets/js/store'
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 
 import App from './views/App'
 import Dashboard from './views/Dashboard'
-import Login from './views/Login'
 import Register from './views/Register'
 import Wallets from './views/Wallets'
+import SignIn from './views/SignIn'
+import Users from './views/Users'
 
 const router = new VueRouter({
     mode: 'history',
+    base: process.env.BASE_URL,
     routes: [
         {
             path: '/',
@@ -36,26 +39,32 @@ const router = new VueRouter({
             component: Register,
         },
         {
-            path: '/login',
-            name: 'login',
-            component: Login,
+            path: '/signin',
+            name: 'signin',
+            component: SignIn,
         },
         {
             path: '/wallets',
             name: 'wallets',
             component: Wallets,
         },
+        {
+            path: '/users',
+            name: 'users',
+            component: Users,
+        },
     ],
 });
 
+
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('login-component', require('./components/LoginComponent.vue').default);
+//Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 
-const app = new Vue({
-    el: '#app',
-    components: { App },
-    router,
-});
-
-Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+store.dispatch('auth/me').then(() => {
+    new Vue({
+        router,
+        store,
+        render: h => h(App)
+    }).$mount('#app')
+})

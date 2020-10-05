@@ -1,6 +1,6 @@
 <template>
     <div>
-		<div class="row mt-4" v-if="wallets.length">
+		<div class="row mt-4" v-if="wallets !== undefined">
 			<h3>Wallets</h3>
 			<b-button @click="info('Add', null, $event.target)" class="btn btn-success">Add</b-button>
 			<b-table hover :items="wallets" :fields="fields">
@@ -73,7 +73,7 @@
 				} else {
 					this.resetFormData();
 					this.$root.$emit('bv::show::modal', this.infoModal.id, button);
-				}				
+				}
 			},
             logout() {
 				console.log("logouting");

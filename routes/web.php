@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WalletController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,13 @@ use App\Http\Controllers\WalletController;
 |
 */
 //I should be able to remove these auth routes if I do them correctly using Vue?
-//Auth::routes();
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [HomeController::class, 'index']);
+Route::post('login', [LoginController::class, 'login']);
+//Route::get('/', [HomeController::class, 'index']);
+Route::get('/signin', [HomeController::class, 'index'])->name('login');;
 Route::get('/register', [HomeController::class, 'index']);
-//need to have an api/logout action?
+
+//Route::get('/wallets', [HomeController::class, 'index']);
+//Route::get('/login', [HomeController::class, 'index']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     //Route::get('/wallets', [WalletController::class, 'index']);

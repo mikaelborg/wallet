@@ -14,7 +14,7 @@
                         <input type="password" name="password" class="form-control" v-model="formData.password" placeholder="Password">
                     </div>
                     <input type="checkbox" id="super" v-model="formData.super">
-                    <label for="checkbox">Super user?</label>
+                    <label for="super">Super user?</label>
                     <div class="form-row">
                         <button type="submit" class="btn btn-primary">Sign Up</button>
                     </div>
@@ -40,7 +40,7 @@
 
         methods: {
             register() {
-                axios.post('/api/users/store', this.formData).then(response => {
+                axios.post('/api/register', this.formData).then(response => {
                     console.log(response);
                 });
             }
