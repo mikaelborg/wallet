@@ -42,26 +42,10 @@ export default {
         }),
 
         async submit() {
-            console.log(this.formData);
-            //console.log(this.signIn());
             await this.signIn(this.formData);
 
-            this.$router.replace({ name: 'dashboard' });
-            /*axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/api/login', this.formData).then(response => {
-                    console.log(response);
-                    //this.getUserWallets();
-                    //.then(() => location.href = '/wallets')
-                    this.$router.push('/wallets')
-                });
-            });*/
+            this.$router.replace({ name: 'wallets' });
         },
-        /*getUserWallets() {
-            axios.get('/api/wallets').then(response => {
-                this.wallets = response.data;
-                this.$router.push('/wallets')
-            });
-        }*/
     }
 }
 </script>

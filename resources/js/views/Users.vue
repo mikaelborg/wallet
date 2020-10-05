@@ -2,11 +2,11 @@
     <div>
         <div class="row mt-4" v-if="users !== undefined">
             <h3>Users</h3>
-            <b-table hover :items="users">
+            <b-table hover bordered :items="users">
                 <template v-slot:cell(wallets)="row">
                     <ul v-for="wallet in row.value" :key="wallet.id">
                         {{ wallet.name }} : {{ (wallet.balance) }}
-                        <b-button @click="editBalance(wallet, $event.target)" class="btn btn-info">Edit</b-button>
+                        <b-button @click="editBalance(wallet, $event.target)" variant="primary">Edit</b-button>
                     </ul>
                 </template>
             </b-table>

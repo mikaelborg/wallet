@@ -18,7 +18,6 @@ Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 
 import App from './views/App'
-import Dashboard from './views/Dashboard'
 import Register from './views/Register'
 import Wallets from './views/Wallets'
 import SignIn from './views/SignIn'
@@ -30,8 +29,8 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'dashboard',
-            component: Dashboard
+            name: 'signin',
+            component: SignIn
         },
         {
             path: '/register',
@@ -55,11 +54,6 @@ const router = new VueRouter({
         },
     ],
 });
-
-
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-//Vue.component('login-component', require('./components/LoginComponent.vue').default);
-Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 
 store.dispatch('auth/me').then(() => {
     new Vue({

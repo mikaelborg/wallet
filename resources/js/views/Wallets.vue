@@ -2,11 +2,11 @@
     <div>
 		<div class="row mt-4" v-if="wallets !== undefined">
 			<h3>Wallets</h3>
-			<b-button @click="info('Add', null, $event.target)" class="btn btn-success">Add</b-button>
-			<b-table hover :items="wallets" :fields="fields">
+			<b-button @click="info('Add', null, $event.target)" variant="success" style="margin-left: 10px;">Add</b-button>
+			<b-table hover bordered :items="wallets" :fields="fields" style="margin-top: 10px;">
 				<template v-slot:cell(actions)="row">
-					<b-button @click="info('Edit', row.item.id, $event.target)" class="btn btn-info">Edit</b-button>
-					<b-button class="btn btn-danger" @click="deleteWallet(row.item.id)">Delete</b-button>
+					<b-button @click="info('Edit', row.item.id, $event.target)" variant="primary">Edit</b-button>
+					<b-button variant="danger" @click="deleteWallet(row.item.id)">Delete</b-button>
 				</template>
 			</b-table>
 			<b-modal :id="infoModal.id" :title="infoModal.title" @ok="handleOk">
